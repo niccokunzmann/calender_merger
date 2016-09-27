@@ -1,0 +1,6 @@
+{
+  "name": "calender-merger",
+  "description": "Merge calenders.",
+  "repository": "https://github.com/niccokunzmann/calender_merger",
+  "keywords": ["python", "calender"],
+}
