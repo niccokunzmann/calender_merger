@@ -1,1 +1,1 @@
-web: python calender_app 80
+web: python -m calender_app
