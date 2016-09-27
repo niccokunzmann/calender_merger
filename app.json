@@ -3,4 +3,9 @@
   "description": "Merge calenders.",
   "repository": "https://github.com/niccokunzmann/calender_merger",
   "keywords": ["python", "calender"],
+  "env": {
+    "APP_LOCATION": {
+      "description": "This should have the value 'heroku'",
+      "required": true
+    }
 }

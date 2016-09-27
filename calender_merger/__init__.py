@@ -59,8 +59,14 @@ def join_calenders():
     
     
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        port = int(sys.argv[1])
+
+def main(argv = sys.argv):
+    if os.environ.get('APP_LOCATION') == 'heroku':
+        # see https://github.com/chucknado/bottle_heroku_tutorial/blob/master/README.md#bottle
+        run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
     else:
-        port = 8080
-    run(host='', port=port, debug=True)
+        if len(argv) > 1:
+            port = int(sys.argv[1])
+        else:
+            port = 8080
+        run(host='', port=port, debug=True)
