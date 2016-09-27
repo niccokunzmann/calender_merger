@@ -1,0 +1,5 @@
+recursive-include calender_merger *.py
+include *requirements.txt
+include LICENSE
+recursive-include calender_merger/static *.html *.css *.js *.htm
+recursive-include calender_merger/templates *.html

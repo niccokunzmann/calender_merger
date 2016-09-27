@@ -7,6 +7,7 @@ import pprint
 from concurrent.futures import ThreadPoolExecutor
 import re
 
+__version__ = "0.0.1"
 
 HERE = os.path.dirname(__file__)
 STATIC_FILES = os.path.join(HERE, "static")
