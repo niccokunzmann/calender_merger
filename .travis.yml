@@ -20,23 +20,22 @@ before_script:
 # show the versions
 - python setup.py --version
 - py.test --version
-- python setup.py requirements
 - echo Package version $PACKAGE_VERSION with possible tag name $TAG_NAME
 script:
 # test with pep8
 # add coverage for python 3.3 and above
-- py.test --cov=calender_merger --pep8
+#- py.test --cov=calender_merger --pep8
 # test import form everywhere
 - ( cd / && python -c "import calender_merger;print(\"imported\")" )
 # run tests from installation
-- "( cd / && py.test --pyargs calender_merger )"
+#- "( cd / && py.test --pyargs calender_merger )"
 # test that the tag represents the version
 # https://docs.travis-ci.com/user/environment-variables/#Default-Environment-Variables
 - ( if [ -n "$TRAVIS_TAG" ]; then if [ $TAG_NAME != $TRAVIS_TAG ]; then echo "This tag is for the wrong version. Got \"$TRAVIS_TAG\" expected \"$TAG_NAME\"."; exit 1; fi; fi; )
 after_script:
 # https://github.com/codeclimate/python-test-reporter
 # set the environment variable CODECLIMATE_REPO_TOKEN in travis-ci settings
-- codeclimate-test-reporter
+#- codeclimate-test-reporter
 before_deploy:
 # create the documentation
 - ( cd docs ; make html )
