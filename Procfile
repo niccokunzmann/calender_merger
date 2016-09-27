@@ -1,1 +1,1 @@
-web: python -m calender_app
+web: python -m calender_merger $PORT
