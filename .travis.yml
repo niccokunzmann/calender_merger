@@ -13,7 +13,7 @@ install:
 - python setup.py sdist --dist-dir=dist --formats=zip
 - ( cd dist ; pip install calender_merger-${PACKAGE_VERSION}.zip )
 # install the test requirements
-- pip install -r test-requirements.txt
+#- pip install -r test-requirements.txt
 before_script:
 # remove the build folder because it creates problems for py.test
 - rm -rf build
