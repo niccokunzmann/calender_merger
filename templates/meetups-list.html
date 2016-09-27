@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <form action="/join-calenders.ics" method="get">
+            Choose your meetups and 
+            <input type="submit" value="generate .ics link">.<br/>
+            <ul>
+% for meetup in meetups:
+                <li>
+                    <input type="checkbox"
+                           name="{{ meetup["link"] }}/events/ical/"
+                           value="" checked/>
+                    {{ meetup["name"] }}
+                    <a href="{{ meetup["link"] }}">&#x1f517;</a>
+                </li>
+% end
+            </ul>
+        </form>
+    </body>
+</html>
