@@ -38,7 +38,7 @@ after_script:
 #- codeclimate-test-reporter
 before_deploy:
 # create the documentation
-- ( cd docs ; make html )
+#- ( cd docs ; make html )
 - pip install wheel
 - python setup.py bdist_wheel
 deploy:
