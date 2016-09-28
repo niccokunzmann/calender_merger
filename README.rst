@@ -3,7 +3,7 @@ calender_merger
 
 Merge calenders and import them into your calender.
 
-[**Try it out**](https://calender-merger.herokuapp.com/)
+`**Try it out** <https://calender-merger.herokuapp.com/>`__
 
 Heroku 
 ------
