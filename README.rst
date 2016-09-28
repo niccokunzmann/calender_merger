@@ -9,7 +9,7 @@ Heroku
 ------
 
 .. image:: https://www.herokucdn.com/deploy/button.svg
-   :target: https://heroku.com/deploy?template=https://github.com/avinassh/niccokunzmann/calender_merger
+   :target: https://heroku.com/deploy?template=https://github.com/niccokunzmann/calender_merger
    :alt: Deploy to Heroku
 
 Status
