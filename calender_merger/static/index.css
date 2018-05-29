@@ -1,0 +1,18 @@
+
+footer {
+  border-color: black;
+  border-width: 0px;
+  border-top-width: 1px;
+  border-style: solid;
+  margin-top: 0.3em;
+  padding-top: 0.3em;
+  color: gray;
+}
+
+footer a {
+  color: gray;
+}
+
+.calender-url-input {
+    width: 100%;
+}

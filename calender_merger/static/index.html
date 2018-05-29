@@ -1,9 +1,60 @@
 <html>
-    <body>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+  <body>
+    <header>
+      <h1>Calender Merger</h1>
+    </header>
+    <main>
+      <div class="section">
+        <p>
+          The calender merger uses ICS calenders online and merge them into one calender.
+        </p>
+      </div>
+      <div class="section">
+        <h2>Your Calenders as One</h2>
+        <p>
+          To merge several calenders, please input the the URLs of the ICS calenders here: 
+        </p>
+        <ul id="calender-urls">
+        </ul>
+        <p>
+          Use this link to subscribe to the joined calender in your application:
+          <br/>
+          <a id="joined-link"></a>
+        </p>
+        <p>
+          You can use <a href="http://www.instantcal.com/isc/js/cvu.html">InstantCal</a> to display the calender:
+          <br/>
+          <a id="calender-link"></a>
+          <br/>
+          To embed the calender, use this code on your website:
+          <pre id="calender-code">
+          </pre>
+          You can view the resulting calender below.
+          <iframe id='cv_if5' src='' allowTransparency=true scrolling='no' frameborder=0 height=600 width=800></iframe>
+        </p>
+        
+      </div>
+      <div class="section">
+        <h2>Meetup</h2>
+        <p>
+          Merge several calenders from your <a href="https://meetup.com">Meetup</a> groups into one calender ICS calender.
+        </p>
         <form action="/choose-groups" method="get">
-            Please enter you <a href="https://secure.meetup.com/meetup_api/key/">API Key</a>:<br>
-            <input type="text" name="api-key"><br>
-            <input type="submit" value="Submit">
+          Please enter your <a href="https://secure.meetup.com/meetup_api/key/">Meetup API Key</a>:<br>
+          <input type="text" name="api-key"><br>
+          <input type="submit" value="Submit">
         </form> 
-    </body>
+      </div>
+    <footer>
+      The calender merger is open-source.
+      You can contribute and view the source code on
+      <a href="https://github.com/niccokunzmann/calender_merger">GitHub</a>.
+    </footer>
+  </body>
 </html>
+
