@@ -22,4 +22,4 @@ Status
 Related Work
 ------------
 
-- `Ical-filter <https://github.com/thoka/ical-filter>` for splitting up calenders.
+- `Ical-filter <https://github.com/thoka/ical-filter>`__ for splitting up calenders.
