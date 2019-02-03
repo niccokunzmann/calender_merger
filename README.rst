@@ -18,3 +18,8 @@ Status
 .. image:: https://travis-ci.org/niccokunzmann/calender_merger.svg
    :target: https://travis-ci.org/niccokunzmann/calender_merger
    :alt: Build Status
+
+Related Work
+------------
+
+- `Ical-filter <https://github.com/thoka/ical-filter>` for splitting up calenders.
