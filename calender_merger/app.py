@@ -1,5 +1,5 @@
 from bottle import route, run, template, redirect, static_file, request, \
-    SimpleTemplate
+    SimpleTemplate, response
 import sys
 import requests
 import os
@@ -48,6 +48,8 @@ def extract_ics(argument):
     
 @route('/join-calenders.ics')
 def join_calenders():
+    response.headers['Access-Control-Allow-Origin']='*'
+    response.headers['Content-Type']='text/calendar'
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
         event_lists = executor.map(extract_ics, request.query.items())
     result = []
