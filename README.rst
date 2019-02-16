@@ -22,4 +22,5 @@ Status
 Related Work
 ------------
 
-- `Ical-filter <https://github.com/thoka/ical-filter>`__ for splitting up calenders.
+- `Ical-filter <https://github.com/thoka/ical-filter>`__ for splitting and filtering calenders.
+- `Open-Web-Calendar <https://github.com/niccokunzmann/open-web-calendar>`__ showing calenders on a website.
