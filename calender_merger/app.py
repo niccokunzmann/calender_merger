@@ -17,7 +17,7 @@ with open(os.path.join(TEMPLATES, "meetups-list.html")) as file:
     LIST_MEETUPS_TEMPLATE = SimpleTemplate(file.read())
 
 EXTRACT_EVENTS = re.compile('\r\n(BEGIN:VEVENT.*?END:VEVENT\r\n)', re.DOTALL)
-CALENDER_START = 'BEGIN:VCALENDAR\r\nVERSION:2.0\r\n'
+CALENDER_START = 'BEGIN:VCALENDAR\r\nVERSION:2.0\r\nCALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\n'
 CALENDER_END = 'END:VCALENDAR\r\n'
 
 @route('/')
@@ -40,7 +40,10 @@ def choose_groups():
 
 def extract_ics(argument):
     url, _ = argument
-    calender_result = requests.get(url)
+    try:
+        calender_result = requests.get(url)
+    except requests.exceptions.MissingSchema:
+        return []
     print("extract_ics {} {}".format(calender_result.status_code, url))
     events = EXTRACT_EVENTS.findall(calender_result.text)
     return events
@@ -48,8 +51,7 @@ def extract_ics(argument):
     
 @route('/join-calenders.ics')
 def join_calenders():
-    response.headers['Access-Control-Allow-Origin']='*'
-    response.headers['Content-Type']='text/calendar'
+    set_JS_headers()
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
         event_lists = executor.map(extract_ics, request.query.items())
     result = []
@@ -58,6 +60,19 @@ def join_calenders():
     result.insert(0, CALENDER_START)
     result.append(CALENDER_END)
     return "".join(result)
+
+def set_JS_headers():
+    """Set the response headers for a valid CORS request."""
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    # see https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSMissingAllowHeaderFromPreflight
+    response.headers['Access-Control-Allow-Headers'] = request.headers.get("Access-Control-Request-Headers")
+    response.headers['Content-Type'] = 'text/calendar'
+
+@route('/join-calenders.ics', method="OPTIONS")
+def join_calenders_options():
+    set_JS_headers()
+    return None
+
     
 def main(argv = sys.argv):
     if len(argv) > 1:
