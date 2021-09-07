@@ -16,7 +16,7 @@ TEMPLATES = os.path.join(HERE, "templates")
 with open(os.path.join(TEMPLATES, "meetups-list.html")) as file:
     LIST_MEETUPS_TEMPLATE = SimpleTemplate(file.read())
 
-EXTRACT_EVENTS = re.compile('\r\n(BEGIN:VEVENT.*?END:VEVENT\r\n)', re.DOTALL)
+EXTRACT_EVENTS = re.compile('BEGIN:VEVENT.*?END:VEVENT\r\n', re.DOTALL)
 CALENDER_START = 'BEGIN:VCALENDAR\r\nVERSION:2.0\r\nCALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\n'
 CALENDER_END = 'END:VCALENDAR\r\n'
 
